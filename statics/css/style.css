@@ -1,0 +1,111 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- List View --- */
+#list-view ul {
+    list-style: none;
+    padding: 0;
+}
+
+#episode-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex; /* Flexboxで見出しとリンクを横並び */
+    justify-content: space-between; /* 要素間にスペースを空ける */
+    align-items: center; /* 垂直方向中央揃え */
+}
+
+#episode-list li span {
+    flex-grow: 1; /* 見出し部分が残りのスペースを埋める */
+    margin-right: 15px; /* リンクとの間に隙間 */
+}
+
+#episode-list li a {
+    display: inline-block; /* または block */
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* リンクテキストが折り返さないように */
+}
+
+#episode-list li a:hover {
+    background-color: #0056b3;
+}
+
+/* --- Detail View --- */
+#detail-view {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+    background-color: #5a6268;
+}
+
+#session-details .session-item {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+#session-details h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #0056b3;
+    border-bottom: none; /* h4には下線不要 */
+}
+
+#session-details p {
+    margin: 5px 0;
+}
+
+#session-details strong {
+    display: inline-block;
+    min-width: 80px; /* ラベルの幅を揃える */
+    color: #555;
+}
+
+/* --- Utility --- */
+.hidden {
+    display: none;
+}
