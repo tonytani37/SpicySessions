@@ -18,6 +18,14 @@ h1 {
 }
 
 /* --- List View --- */
+#episode-list .episode-title {
+    font-size: 1.3em; /* 文字サイズを大きくする (1.3倍、値は調整可能) */
+    font-weight: bold; /* 太字にする (任意) */
+    color: #222;      /* 文字色を少し濃くする (任意) */
+    display: inline-block; /* 必要ならブロック要素にする display: block; も可 */
+    margin-top: 4px; /* タイトルの上に少しスペースを空ける (任意) */
+}
+
 #list-view ul {
     list-style: none;
     padding: 0;

@@ -34,10 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const listItem = document.createElement('li');
             const infoSpan = document.createElement('span');
             // 安全なテキスト挿入 (innerHTMLより安全)
-            infoSpan.appendChild(document.createElement('strong')).textContent = `第${episodeNum}回`;
+            // infoSpan.appendChild(document.createElement('strong')).textContent = `第${episodeNum}回`;
+            // infoSpan.appendChild(document.createTextNode(` (${broadcastDate})`));
+            // infoSpan.appendChild(document.createElement('br'));
+            // infoSpan.appendChild(document.createTextNode(title));
+            // 回 (太字)
+            const episodeNumStrong = document.createElement('strong');
+            episodeNumStrong.textContent = `第${episodeNum}回`;
+            infoSpan.appendChild(episodeNumStrong);
+
+            // 放送日 (通常テキスト)
             infoSpan.appendChild(document.createTextNode(` (${broadcastDate})`));
+
+            // 改行
             infoSpan.appendChild(document.createElement('br'));
-            infoSpan.appendChild(document.createTextNode(title));
+
+            // タイトル (spanで囲み、クラスを追加)
+            const titleSpan = document.createElement('span'); // span要素を作成
+            titleSpan.textContent = title;                    // テキストを設定
+            titleSpan.classList.add('episode-title');       // CSSクラス 'episode-title' を追加 ★
+            infoSpan.appendChild(titleSpan);                  // infoSpanに追加
 
 
             const detailLink = document.createElement('a');
