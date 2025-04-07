@@ -9,8 +9,8 @@ body {
 #title-image {
     width: 100%;
     max-width: 400px; /* 必要に応じて調整 */
-    margin: 0 auto;
-    padding: 1rem 0;
+    /* margin: 0 auto; */
+    /* padding: 1rem 0; */
 }
 
 #title-image img {
