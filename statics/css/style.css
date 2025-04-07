@@ -19,6 +19,29 @@ body {
     display: block;
 }
 
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:  100%;
+  }
+
+.left-image {
+text-align: left;
+max-width: 400px;
+/* height: auto; */
+}
+
+.right-image {
+text-align: right;
+max-width:  50px;
+/* height: auto; */
+}
+
+img {
+max-width: 80%;
+height: auto;
+}
 
 h1, h2, h3 {
     color: #333;
