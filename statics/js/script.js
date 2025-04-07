@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const listView = document.getElementById('list-view');
     const detailView = document.getElementById('detail-view');
     const detailTitle = document.getElementById('detail-title');
+    const detailSubTile = document.getElementById('detail-subtitle');
+    const detailOthers = document.getElementById('detail-others');
     const sessionDetailsContainer = document.getElementById('session-details');
     const backButton = document.getElementById('back-button');
 
@@ -94,10 +96,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const episodeNum = episode.hasOwnProperty('回') ? episode.回 : '不明';
         const broadcastDate = episode.hasOwnProperty('放送日') ? episode.放送日 : '不明';
         const title = episode.hasOwnProperty('放送タイトル') ? episode.放送タイトル : 'タイトル不明';
+        const curry = episode.hasOwnProperty('カレー') ? episode.カレー : '不明';
+        const others = episode.hasOwnProperty('参考') ? episode.参考 : '不明';
+        const times = episode.hasOwnProperty('放送時間') ? episode.放送時間 : '不明';
         const sessions = (episode.hasOwnProperty('セッション情報') && Array.isArray(episode.セッション情報)) ? episode.セッション情報 : [];
 
+        console.log(curry,others,times);
 
         detailTitle.textContent = `第${episodeNum}回: ${title} (${broadcastDate})`;
+        detailSubTile.textContent = `●放送時間: ${times}  ●提供カレー: ${curry}`;
+        detailOthers.textContent = `●参考情報: ${others}`;
+
         sessionDetailsContainer.innerHTML = ''; // クリア
 
         if (sessions.length > 0) {
