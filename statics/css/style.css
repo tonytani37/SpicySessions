@@ -6,6 +6,20 @@ body {
     color: #333;
 }
 
+#title-image {
+    width: 100%;
+    max-width: 400px; /* 必要に応じて調整 */
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+#title-image img {
+    width: 80%;
+    height: auto;
+    display: block;
+}
+
+
 h1, h2, h3 {
     color: #333;
     border-bottom: 2px solid #007bff;

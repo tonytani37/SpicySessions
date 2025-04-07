@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let fetchedData = []; // フェッチしたデータを保持する変数
 
-    // --------------------------------------------------
-    // displayListView 関数 (変更なし - 前回の回答と同じ)
-    // --------------------------------------------------
     function displayListView(data) {
         episodeListContainer.innerHTML = ''; // "読み込み中..." をクリア
 
@@ -34,10 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const listItem = document.createElement('li');
             const infoSpan = document.createElement('span');
             // 安全なテキスト挿入 (innerHTMLより安全)
-            // infoSpan.appendChild(document.createElement('strong')).textContent = `第${episodeNum}回`;
-            // infoSpan.appendChild(document.createTextNode(` (${broadcastDate})`));
-            // infoSpan.appendChild(document.createElement('br'));
-            // infoSpan.appendChild(document.createTextNode(title));
             // 回 (太字)
             const episodeNumStrong = document.createElement('strong');
             episodeNumStrong.textContent = `第${episodeNum}回`;
@@ -77,9 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         detailView.classList.add('hidden');
     }
 
-    // --------------------------------------------------
-    // displayDetailView 関数 (変更なし - 前回の回答と同じ)
-    // --------------------------------------------------
      function displayDetailView(data, index) {
         if (typeof index !== 'number' || index < 0 || index >= data.length) {
             console.error('無効なインデックス:', index);
@@ -164,14 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --------------------------------------------------
-    // 戻るボタンのイベントリスナー (変更なし)
-    // --------------------------------------------------
+    // 戻るボタンのイベントリスナー
     backButton.addEventListener('click', () => {
         displayListView(fetchedData);
     });
 
-    // --- データ取得処理 (修正) ---
+    // --- 外部ファイルからデータ取得処理 ---
     const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs.json';
 
     fetch(jsonUrl)
