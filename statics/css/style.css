@@ -29,17 +29,17 @@ body {
 .left-image {
 text-align: left;
 max-width: 500px;
-/* height: auto; */
+height: auto;
 }
 
 .right-image {
 text-align: right;
-max-width:  50px;
-/* height: auto; */
+max-width:  400px;
+height: auto;
 }
 
 img {
-max-width: 80%;
+max-width: 70%;
 height: auto;
 }
 
