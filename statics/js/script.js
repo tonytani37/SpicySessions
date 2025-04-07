@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(curry,others,times);
 
         detailTitle.textContent = `第${episodeNum}回: ${title}`;
-        detailSubTile.textContent = `●放送日時: ${broadcastDate} ${times}  ●提供カレー: ${curry}`;
+        detailSubTile.textContent = `●初回放送日時: ${broadcastDate} ${times}  ●提供カレー: ${curry}`;
         detailOthers.textContent = `●参考情報: ${others}`;
 
         sessionDetailsContainer.innerHTML = ''; // クリア
