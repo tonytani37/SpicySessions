@@ -199,3 +199,34 @@ document.addEventListener('DOMContentLoaded', () => {
             detailView.classList.add('hidden');
         });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollButton = document.getElementById('scroll-button');
+
+    // ボタン押下時の処理
+    scrollButton.addEventListener('click', function () {
+        if (window.scrollY < 100) {
+            // 最後へ
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        } else {
+            // 先頭へ
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    // スクロールに応じてボタンの表示内容を変更
+    window.addEventListener('scroll', function () {
+        if (window.scrollY < 100) {
+            scrollButton.textContent = '最後へ';
+        } else {
+            scrollButton.textContent = '先頭へ';
+        }
+    });
+});
+
