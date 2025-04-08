@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const backButton = document.getElementById('back-button');
 
     // 検索関連のDOM要素
-    const searchIconButton = document.getElementById('search-icon-button');
-    const searchForm = document.getElementById('search-form');
+    // const searchIconButton = document.getElementById('search-icon-button');
+    // const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
     const searchExecuteButton = document.getElementById('search-execute-button');
     const searchResultsView = document.getElementById('search-results-view');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         detailView.classList.add('hidden');
         searchResultsView.classList.add('hidden'); // 検索結果も隠す
         // 検索フォームも隠す（一覧表示時はリセット）
-        searchForm.classList.add('hidden');
+        // searchForm.classList.add('hidden');
         searchInput.value = ''; // 検索語をクリア
         window.scrollTo(0, 0); // ページトップへ
     }
@@ -268,13 +268,13 @@ document.addEventListener('DOMContentLoaded', () => {
         displayListView(fetchedData); // 全件リスト表示に戻る
     });
 
-    // 検索アイコンボタン
-    searchIconButton.addEventListener('click', () => {
-        searchForm.classList.toggle('hidden'); // 検索フォームの表示/非表示を切り替え
-        if (!searchForm.classList.contains('hidden')) {
-            searchInput.focus(); // 表示されたら入力欄にフォーカス
-        }
-    });
+    // // 検索アイコンボタン
+    // searchIconButton.addEventListener('click', () => {
+    //     searchForm.classList.toggle('hidden'); // 検索フォームの表示/非表示を切り替え
+    //     if (!searchForm.classList.contains('hidden')) {
+    //         searchInput.focus(); // 表示されたら入力欄にフォーカス
+    //     }
+    // });
 
     // 検索実行ボタン
     searchExecuteButton.addEventListener('click', () => {

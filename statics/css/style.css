@@ -197,7 +197,7 @@ h1 {
 #search-icon-button {
     background: none;
     border: none;
-    font-size: 1.5em; /* アイコンサイズ調整 */
+    font-size: 1em; /* アイコンサイズ調整 */
     cursor: pointer;
     padding: 5px;
     /* position: absolute; 右上に配置する場合 */
@@ -216,23 +216,31 @@ h1 {
     padding: 8px 10px;
     margin-right: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px;
     width: calc(100% - 100px); /* ボタン幅を考慮 */
-    max-width: 300px; /* 最大幅 */
+    max-width: 350px; /* 最大幅 */
 }
 
 #search-execute-button {
-    padding: 8px 15px;
-    background-color: #28a745; /* 検索ボタンの色 */
+    /* padding: 8px 15px;
+    background-color: #9d9d9d; 
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; */
+    background: none;
+    border: none;
+    font-size: 1em; /* アイコンサイズ調整 */
+    cursor: pointer;
+    padding: 5px;
+    /* position: absolute; 右上に配置する場合 */
+    top: 10px;
+    right: 10px;
 }
 
 #search-execute-button:hover {
-    background-color: #218838;
+    background-color: #5a5a5a;
 }
 
 /* --- Search Results View --- */
@@ -300,11 +308,3 @@ h1 {
 }
 
 /* --- 既存のスタイル調整 (必要に応じて) --- */
-body {
-    font-family: sans-serif;
-    margin: 20px;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
-/* 他の既存スタイルは省略 */
