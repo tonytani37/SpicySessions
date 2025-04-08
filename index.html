@@ -6,21 +6,24 @@
     <title>Spicy Sessions 放送回リスト</title>
     <link rel="stylesheet" href="statics/css/style.css">
     <link rel="icon" href="statics/img/favicon.png" type="image/x-icon">
-</head>
+    </head>
 <body>
-    <!-- <div id="title-image"> -->
     <div class="image-container">
-    <!-- <div id="title-image"> -->
         <div class="left-image">
-        <!-- <img src="statics/img/spicysessions_title_logo.png" alt="Spicy Sessions タイトル画像"> -->
             <img src="statics/img/spicy_sessions_img.jpg" alt="Spicy Sessions">
-        </div>    
+        </div>
         <div class="left-image">
             <img src="statics/img/spicysessions_title_logo2.png" alt="Spicy Sessions タイトル画像">
-        <!-- <img src="statics/img/spicy_sessions_img.jpg" alt="Spicy Sessions"> -->
         </div>
     </div>
-    <!-- <h1>Spicy Sessions</h1> -->
+
+    <div id="search-container">
+        <button id="search-icon-button">🔍</button>
+         <div id="search-form" class="hidden">      
+            <input type="text" id="search-input" placeholder="セッション曲名を入力...">
+            <button id="search-execute-button">検索</button>
+        </div>
+    </div>
 
     <div id="list-view">
         <h2>放送回一覧</h2>
@@ -39,14 +42,20 @@
             </div>
     </div>
 
+    <div id="search-results-view" class="hidden">
+        <h2>検索結果</h2>
+        <ul id="search-results-list">
+            </ul>
+        <button id="back-to-list-from-search">一覧に戻る</button>
+    </div>
+
+
     <div id="footer">
-        <!-- <p>© 2023 Spicy Sessions</p> -->
         <p>このサイトは非公式ファンサイトであり公式のものではありません。</p>
         <p>そのため記載内容が正確ではない場合があります。</p>
         <a href="https://ja.wikipedia.org/wiki/Spicy_Sessions">参照元:Wikipedia (Spicy Sessions)</a>
     </div>
-        
-    <!-- スクロールボタン -->
+
     <button id="scroll-button">最後へ</button>
 
     <script src="statics/js/script.js"></script>

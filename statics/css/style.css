@@ -182,3 +182,129 @@ h1 {
 .hidden {
     display: none;
 }
+
+/* style.css の末尾に追加 */
+
+/* --- Search Area --- */
+#search-container {
+    position: relative; /* アイコンボタンの位置調整のため */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #e9ecef; /* 背景色を少しつける（任意）*/
+    border-radius: 5px;
+}
+
+#search-icon-button {
+    background: none;
+    border: none;
+    font-size: 1.5em; /* アイコンサイズ調整 */
+    cursor: pointer;
+    padding: 5px;
+    /* position: absolute; 右上に配置する場合 */
+    top: 10px;
+    right: 10px;
+}
+
+#search-form {
+    /* display: none; /* 初期状態はJSでhiddenクラス制御 */
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc; /* 区切り線 */
+}
+
+#search-input {
+    padding: 8px 10px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 100px); /* ボタン幅を考慮 */
+    max-width: 300px; /* 最大幅 */
+}
+
+#search-execute-button {
+    padding: 8px 15px;
+    background-color: #28a745; /* 検索ボタンの色 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-execute-button:hover {
+    background-color: #218838;
+}
+
+/* --- Search Results View --- */
+#search-results-view {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#search-results-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px; /* ボタンとの間隔 */
+}
+
+#search-results-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#search-results-list li .result-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block; /* タイトルをブロック要素に */
+}
+#search-results-list li .result-date {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+    display: block; /* 日付もブロック要素に */
+}
+#search-results-list li .result-song {
+    margin-left: 15px; /* セッション曲を少しインデント */
+    display: block; /* 曲名もブロック要素に */
+    color: #0056b3; /* 曲名の色 */
+}
+#search-results-list li .result-song::before {
+    content: "♪ "; /* 曲名の前に音符マーク */
+}
+
+
+#back-to-list-from-search {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#back-to-list-from-search:hover {
+    background-color: #5a6268;
+}
+
+/* --- 既存のhiddenクラスはそのまま利用 --- */
+.hidden {
+    display: none;
+}
+
+/* --- 既存のスタイル調整 (必要に応じて) --- */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+/* 他の既存スタイルは省略 */
