@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchResultsList.innerHTML = ''; // 結果リストをクリア
 
         if (!results || results.length === 0) {
-            searchResultsList.innerHTML = '<li>検索結果が見つからなかったから もう一度キーワードを変えて検索してみてね</li>';
+            searchResultsList.innerHTML = '<li>残念ながら指定された文字を含むセッション曲名は見つかりませんでした</li>';
             showSearchResultsView(); // 表示状態を検索結果ビューに設定
             return;
         }
