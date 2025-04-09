@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchResultsList.innerHTML = ''; // 結果リストをクリア
 
         if (!results || results.length === 0) {
-            searchResultsList.innerHTML = '<li>残念ながら指定された文字を含むセッション曲名は見つかりませんでした</li>';
+            searchResultsList.innerHTML = '<li>指定された文字を含むセッション曲名は見つかりませんでした</li>';
             showSearchResultsView(); // 表示状態を検索結果ビューに設定
             return;
         }
@@ -219,20 +219,20 @@ document.addEventListener('DOMContentLoaded', () => {
     function performSearch() {
         const searchTerm = searchInput.value.trim().toLowerCase(); // 入力値を取得し、小文字に変換
 
-        // if (!searchTerm) {
-            // 検索語が空の場合は何もしないか、メッセージを表示
-        //     alert("検索キーワードを入力してください。");
-        //     return;
-        // }
-
         if (!searchTerm) {
-            Swal.fire({
-                icon: 'warning',
-                title: '曲名が入力されてませんよ',
-                text: '検索したい曲名を１文字以上入力してね',
-            });
+            // 検索語が空の場合は何もしないか、メッセージを表示
+            alert("１文字以上のセッション曲名を入力してください。");
             return;
         }
+
+        // if (!searchTerm) {
+        //     Swal.fire({
+        //         icon: 'warning',
+        //         title: '曲名が入力されてませんよ',
+        //         text: '検索したい曲名を１文字以上入力してね',
+        //     });
+        //     return;
+        // }
 
         const searchResults = []; // 検索結果を格納する配列
 
