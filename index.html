@@ -16,7 +16,87 @@
 
             gtag('config', 'G-J1EVXK4CYV');
     </script>
-    </head>
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            padding: 1em;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+        .left-image img {
+            width: 50%;
+            height: auto;
+        }
+        .left-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5em;
+            flex-wrap: wrap;
+            margin: 1em 0;
+        }
+        #search-input {
+            flex: 1 1 auto;
+            min-width: 200px;
+            max-width: 500px;
+            padding: 0.5em;
+            font-size: 1em;
+        }
+        #search-execute-button {
+            padding: 0.5em 1em;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        #list-view, #detail-view, #search-results-view {
+            width: 100%;
+            max-width: none;
+            margin: 0 auto;
+            padding: 0 1em;
+            box-sizing: border-box;
+        }
+        ul {
+            padding-left: 1.2em;
+        }
+        #session-details, #search-results-list {
+            padding: 0.5em;
+        }
+        #back-button, #back-to-list-from-search {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            font-size: 1em;
+        }
+        #footer {
+            margin-top: 2em;
+            font-size: 0.9em;
+            text-align: center;
+            color: #666;
+        }
+        #scroll-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 0.5em 1em;
+            font-size: 0.9em;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
 <body>
     <div class="image-container">
         <div class="left-image">
@@ -28,12 +108,10 @@
     </div>
 
     <div id="search-container">
-        <!-- <button id="search-icon-button">🔍</button> -->
-        <!-- <div id="search-form" class="hidden"> -->
-            <input type="text" id="search-input" placeholder="セッション曲名を検索...">
-            <button id="search-execute-button">🔍</button>
-        <!-- </div> -->
+        <input type="text" id="search-input" placeholder="セッション曲名を検索...">
+        <button id="search-execute-button">🔍</button>
     </div>
+
     <div id="list-view">
         <h2>放送回一覧</h2>
         <ul id="episode-list">
@@ -47,20 +125,17 @@
         <h3 id="detail-others"></h3>
         <button id="back-button">一覧に戻る</button>
         <h3>セッション情報</h3>
-        <div id="session-details">
-            </div>
+        <div id="session-details"></div>
     </div>
 
     <div id="search-results-view" class="hidden">
         <h2>検索結果</h2>
-        <ul id="search-results-list">
-            </ul>
+        <ul id="search-results-list"></ul>
         <button id="back-to-list-from-search">一覧に戻る</button>
     </div>
 
-
     <div id="footer">
-        <p> β 2.12</p>
+        <p> β 3</p>
         <p>このサイトは非公式ファンサイトであり公式のものではありません。</p>
         <p>そのため記載内容が正確ではない場合があります。</p>
         <a href="https://ja.wikipedia.org/wiki/Spicy_Sessions">参照元:Wikipedia (Spicy Sessions)</a>
@@ -71,3 +146,8 @@
     <script src="statics/js/script.js"></script>
 </body>
 </html>
+<!-- 
+β1: 初版
+β2: 検索機能追加
+β3: スマホ対応 
+-->
