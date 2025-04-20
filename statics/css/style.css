@@ -20,6 +20,16 @@ body {
     gap: 1em;
     margin-bottom: 1em;
 }
+.image-container_imformation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 1em;
+    background-color: #414141;
+}
 .left-image img {
     width: 50%;
     height: auto;
