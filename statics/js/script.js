@@ -306,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- データ取得処理 (既存の処理) ---
     // const jsonUrl = 'json/spicy_sessions_songs.json'; // ローカルテスト用パス
     const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs.json';
+    // const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs_test.json';
 
     fetch(jsonUrl)
         .then(response => {
