@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailTitle = document.getElementById('detail-title');
     const detailSubTile = document.getElementById('detail-subtitle'); // 注意: 元のIDが 'detail-subtitle' なら合わせる
     const detailOthers = document.getElementById('detail-others');
+    const detailLinkContainer = document.getElementById('detail-link');
     const sessionDetailsContainer = document.getElementById('session-details');
     const backButton = document.getElementById('back-button');
 
@@ -127,6 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // 注意: IDが detail-subtitle ならこちら
         if (detailSubTile) detailSubTile.textContent = `●初回放送日時: ${broadcastDate} ${times}  ●提供カレー: ${curry}`;
         detailOthers.textContent = `●参考情報: ${others}`;
+
+        // 公式サイトリンク表示処理（ここを追加）
+        if (episode.hasOwnProperty('link') && episode.link.trim() !== '') {
+            detailLinkContainer.innerHTML = "▶ "+`<a href="${episode.link}" target="_blank" rel="noopener noreferrer">公式サイト 番組紹介</a>`;
+        } else {
+            detailLinkContainer.innerHTML = '';
+        }
 
         sessionDetailsContainer.innerHTML = ''; // クリア
 
@@ -305,6 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- データ取得処理 (既存の処理) ---
     const jsonUrl = 'json/spicy_sessions_songs.json'; // ローカル用パス
+    // const jsonUrl = 'json/old/spicy_sessions_songs.json'; // ローカル用パス
     // const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs.json';
 
    fetch(jsonUrl)
