@@ -127,14 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
         detailTitle.textContent = `第${episodeNum}回: ${title}`;
         // 注意: IDが detail-subtitle ならこちら
         if (detailSubTile) detailSubTile.textContent = `●初回放送日時: ${broadcastDate} ${times}  ●提供カレー: ${curry}`;
-        detailOthers.textContent = `●参考情報: ${others}`;
-
-        // 公式サイトリンク表示処理（ここを追加）
-        if (episode.hasOwnProperty('link') && episode.link.trim() !== '') {
-            detailLinkContainer.innerHTML = "▶ "+`<a href="${episode.link}" target="_blank" rel="noopener noreferrer">公式サイト 番組紹介</a>`;
-        } else {
-            detailLinkContainer.innerHTML = '';
-        }
+        // detailOthers.textContent = `●参考情報: ${others}`;
+        const referenceText = episode.hasOwnProperty('参考') ? episode.参考 : '';
+        const linkHtml = (episode.hasOwnProperty('link') && episode.link.trim() !== '')
+            ? `　<a href="${episode.link}" target="_blank" rel="noopener noreferrer">▶ 公式サイト番組情報</a>`
+            : '';
+        detailOthers.innerHTML = `●参考情報: ${referenceText}${linkHtml}`;
 
         sessionDetailsContainer.innerHTML = ''; // クリア
 
