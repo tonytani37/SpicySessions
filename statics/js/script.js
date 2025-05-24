@@ -304,27 +304,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- データ取得処理 (既存の処理) ---
-    // const jsonUrl = 'json/spicy_sessions_songs.json'; // ローカルテスト用パス
-    const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs.json';
-    // const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs_test.json';
+    const jsonUrl = 'json/spicy_sessions_songs.json'; // ローカル用パス
+    // const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs.json';
 
-    fetch(jsonUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`ファイル読み込みエラー: ${response.status} ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(parsedData => {
-            fetchedData = parsedData;
-            // 初期表示は一覧
-            displayListView(fetchedData);
-        })
-        .catch(error => {
-            console.error('データの読み込みまたは処理に失敗しました:', error);
-            episodeListContainer.innerHTML = `<li>データの読み込みに失敗しました: ${error.message}</li>`;
-            showListView(); // エラー時もリストビューを表示
-        });
+   fetch(jsonUrl)
+    .then(response => response.json())
+    .then(parsedData => {
+        fetchedData = parsedData;
+        // 初期表示は一覧
+        displayListView(fetchedData);
+    })
+    .catch(error => {
+        console.error('データの読み込みまたは処理に失敗しました:', error);
+        episodeListContainer.innerHTML = `<li>データの読み込みに失敗しました: ${error.message}</li>`;
+        showListView(); // エラー時もリストビューを表示
+    });
 
 }); // DOMContentLoaded の終わり
 
