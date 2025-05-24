@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // detailOthers.textContent = `●参考情報: ${others}`;
         const referenceText = episode.hasOwnProperty('参考') ? episode.参考 : '';
         const linkHtml = (episode.hasOwnProperty('link') && episode.link.trim() !== '')
-            ? `　<a href="${episode.link}" target="_blank" rel="noopener noreferrer">▶ 公式サイト番組情報</a>`
+            ? `　<a href="${episode.link}" target="_blank" rel="noopener noreferrer">▶ 番組公式</a>`
             : '';
         detailOthers.innerHTML = `●参考情報: ${referenceText}${linkHtml}`;
 
