@@ -397,3 +397,19 @@ h1 {
 }
 
 /* --- 既存のスタイル調整 (必要に応じて) --- */
+.icon-links-container {
+    display: flex;
+    justify-content: center; /* This property centers flex items horizontally */
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.icon-links-container img {
+    max-width: 30px; /* Adjust the size of your icons */
+    height: auto;
+    display: block; /* Remove extra space below images */
+}
+
