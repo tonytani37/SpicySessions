@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailTitle = document.getElementById('detail-title');
     const detailSubTile = document.getElementById('detail-subtitle'); // 注意: 元のIDが 'detail-subtitle' なら合わせる
     const detailOthers = document.getElementById('detail-others');
-    const detailLinkContainer = document.getElementById('detail-link');
+    // const detailLinkContainer = document.getElementById('detail-link');
     const sessionDetailsContainer = document.getElementById('session-details');
     const backButton = document.getElementById('back-button');
 
@@ -132,7 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const linkHtml = (episode.hasOwnProperty('link') && episode.link.trim() !== '')
             ? `　<a href="${episode.link}" target="_blank" rel="noopener noreferrer">▶ 番組公式</a>`
             : '';
-        detailOthers.innerHTML = `●参考情報: ${referenceText}${linkHtml}`;
+        const spaceHtml = (episode.hasOwnProperty('space') && episode.space.trim() !== '')
+            ? `　<a href="${episode.space}" target="_blank" rel="noopener noreferrer">▶ 非公式感想スペース</a>`
+            : '';
+        detailOthers.innerHTML = `●参考情報: ${referenceText}${linkHtml}${spaceHtml}`;
 
         sessionDetailsContainer.innerHTML = ''; // クリア
 
