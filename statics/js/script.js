@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // const detailLinkContainer = document.getElementById('detail-link');
     const sessionDetailsContainer = document.getElementById('session-details');
     const backButton = document.getElementById('back-button');
+    // ソートボタン取得
+    const sortAscButton = document.getElementById('sort-asc');
+    const sortDescButton = document.getElementById('sort-desc');
 
     // 検索関連のDOM要素
     const searchInput = document.getElementById('search-input');
@@ -83,13 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const detailLink = document.createElement('a');
             detailLink.textContent = '詳細を見る';
             detailLink.href = '#';
-            detailLink.dataset.index = index;
-
+            // detailLink.dataset.index = index;
+            
+            // ✅ episode自体を渡す（クロージャで保持）
             detailLink.addEventListener('click', (event) => {
                 event.preventDefault();
-                const episodeIndex = event.target.dataset.index;
-                displayDetailView(fetchedData, parseInt(episodeIndex, 10));
+                displayDetailViewByEpisode(episode);
             });
+
+            // detailLink.addEventListener('click', (event) => {
+            //     event.preventDefault();
+            //     const episodeIndex = event.target.dataset.index;
+            //     displayDetailView(fetchedData, parseInt(episodeIndex, 10));
+            // });
 
             listItem.appendChild(infoSpan);
             listItem.appendChild(detailLink);
@@ -311,6 +320,28 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollButton.textContent = (window.scrollY < 100) ? '最後へ' : '先頭へ';
     });
 
+    // ソート処理
+    function sortEpisodes(order = 'asc') {
+        const sortedData = [...fetchedData].sort((a, b) => {
+            const aNum = Number(a.回);
+            const bNum = Number(b.回);
+            return order === 'asc' ? aNum - bNum : bNum - aNum;
+        });
+        displayListView(sortedData);
+    }
+
+    function displayDetailViewByEpisode(episode) {
+        const index = fetchedData.findIndex(item => item.回 === episode.回);
+        if (index !== -1) {
+            displayDetailView(fetchedData, index);
+        } else {
+            console.error("エピソードが見つかりません:", episode);
+        }
+    }
+
+// イベントリスナー追加
+sortAscButton.addEventListener('click', () => sortEpisodes('asc'));
+sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
 
     // --- データ取得処理 (既存の処理) ---
     const jsonUrl = 'json/spicy_sessions_songs.json'; // ローカル用パス
