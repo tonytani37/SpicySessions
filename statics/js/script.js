@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const spaceHtml = (episode.hasOwnProperty('space') && episode.space.trim() !== '')
             ? `　<a href="${episode.space}" target="_blank" rel="noopener noreferrer">▶ 非公式感想スペース</a>`
             : '';
-        detailOthers.innerHTML = `●参考情報: ${referenceText}${linkHtml}${spaceHtml}`;
+        detailOthers.innerHTML = `●参考情報: ${linkHtml}${spaceHtml}${referenceText}`;
 
         sessionDetailsContainer.innerHTML = ''; // クリア
 
