@@ -139,10 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // detailOthers.textContent = `●参考情報: ${others}`;
         const referenceText = episode.hasOwnProperty('参考') ? episode.参考 : '';
         const linkHtml = (episode.hasOwnProperty('link') && episode.link.trim() !== '')
-            ? `　<a href="${episode.link}" target="_blank" rel="noopener noreferrer">▶ 番組公式</a>`
+            ? `　<a href="${episode.link}" target="_blank" rel="noopener noreferrer">▶ 番組公式 </a>`
             : '';
         const spaceHtml = (episode.hasOwnProperty('space') && episode.space.trim() !== '')
-            ? `　<a href="${episode.space}" target="_blank" rel="noopener noreferrer">▶ 非公式感想スペース</a>`
+            ? `　<a href="${episode.space}" target="_blank" rel="noopener noreferrer">▶ 非公式感想スペース </a>`
             : '';
         detailOthers.innerHTML = `●参考情報: ${linkHtml}${spaceHtml}${referenceText}`;
 
