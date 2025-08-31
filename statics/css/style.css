@@ -413,3 +413,26 @@ h1 {
     display: block; /* Remove extra space below images */
 }
 
+.result-title-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* タイトルとボタンの間隔 */
+    margin-bottom: 4px;
+}
+
+.detail-link {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #007BFF; /* 青 */
+    color: #fff;              /* 白文字 */
+    border-radius: 12px;      /* 角丸 */
+    text-decoration: none;    /* 下線消す */
+    font-size: 0.85em;
+    transition: background-color 0.2s;
+    white-space: nowrap;      /* 折り返さない */
+}
+
+.detail-link:hover {
+    background-color: #0056b3; /* ホバー時の濃い青 */
+}
+

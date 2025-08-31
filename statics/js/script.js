@@ -193,45 +193,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
         showDetailView(); // 表示状態を詳細ビューに設定
     }
+function displaySearchResults(results) {
+    searchResultsList.innerHTML = ''; // 結果リストをクリア
 
-    // 検索結果表示（新規追加）
-    function displaySearchResults(results) {
-        searchResultsList.innerHTML = ''; // 結果リストをクリア
+    if (!results || results.length === 0) {
+        searchResultsList.innerHTML = '<li>指定された文字を含むセッション曲名は見つかりませんでした</li>';
+        showSearchResultsView(); 
+        return;
+    }
 
-        if (!results || results.length === 0) {
-            searchResultsList.innerHTML = '<li>指定された文字を含むセッション曲名は見つかりませんでした</li>';
-            showSearchResultsView(); // 表示状態を検索結果ビューに設定
-            return;
-        }
+    results.forEach(result => {
+        const listItem = document.createElement('li');
 
-        results.forEach(result => {
-            const listItem = document.createElement('li');
+        // タイトル＋ボタンを横並びにまとめるコンテナ
+        const titleContainer = document.createElement('div');
+        titleContainer.classList.add('result-title-container');
 
-            // 放送タイトル
-            const titleSpan = document.createElement('span');
-            titleSpan.classList.add('result-title');
-            titleSpan.textContent = result.放送タイトル;
-            listItem.appendChild(titleSpan);
+        // 放送タイトル（テキスト）
+        const titleSpan = document.createElement('span');
+        titleSpan.classList.add('result-title');
+        titleSpan.textContent = result.放送タイトル;
+        titleContainer.appendChild(titleSpan);
 
-            // 放送日
-            const dateSpan = document.createElement('span');
-            dateSpan.classList.add('result-date');
-            dateSpan.textContent = `放送日: ${result.放送日}`;
-            listItem.appendChild(dateSpan);
+        // 「詳細を見る」ボタン
+        const detailLink = document.createElement('a');
+        detailLink.href = '#';
+        detailLink.textContent = '詳細を見る';
+        detailLink.classList.add('detail-link');
 
-            // 該当セッション曲
-            result.matchedSongs.forEach(song => {
-                 const songSpan = document.createElement('span');
-                 songSpan.classList.add('result-song');
-                 songSpan.textContent = song; // セッション曲名
-                 listItem.appendChild(songSpan);
-            });
-
-            searchResultsList.appendChild(listItem);
+        detailLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetEpisode = fetchedData.find(
+                ep => ep.放送タイトル === result.放送タイトル && ep.放送日 === result.放送日
+            );
+            if (targetEpisode) {
+                displayDetailViewByEpisode(targetEpisode);
+            } else {
+                console.error("対象のエピソードが見つかりません:", result);
+            }
         });
 
-        showSearchResultsView(); // 表示状態を検索結果ビューに設定
-    }
+        titleContainer.appendChild(detailLink);
+        listItem.appendChild(titleContainer);
+
+        // 放送日
+        const dateSpan = document.createElement('span');
+        dateSpan.classList.add('result-date');
+        dateSpan.textContent = `放送日: ${result.放送日}`;
+        listItem.appendChild(dateSpan);
+
+        // 該当セッション曲
+        result.matchedSongs.forEach(song => {
+            const songSpan = document.createElement('span');
+            songSpan.classList.add('result-song');
+            songSpan.textContent = song;
+            listItem.appendChild(songSpan);
+        });
+
+        searchResultsList.appendChild(listItem);
+    });
+
+    showSearchResultsView(); 
+}
 
     // --- 検索処理関数 (新規追加) ---
     function performSearch() {
