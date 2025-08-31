@@ -425,7 +425,7 @@ h1 {
     padding: 4px 10px;
     background-color: #007BFF; /* 青 */
     color: #fff;              /* 白文字 */
-    border-radius: 12px;      /* 角丸 */
+    border-radius: 5px;      /* 角丸 */
     text-decoration: none;    /* 下線消す */
     font-size: 0.85em;
     transition: background-color 0.2s;
