@@ -413,8 +413,7 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
             // 表示するHTML要素を組み立てる
             const articleHtml = `
                 <div class="news-item" style="border-bottom: 1px solid #ccc; padding: 10px 0;">
-                    <p style="font-size: small; color: gray;"> ${formattedDate}</p>
-                    <p style="font-size: small; color: gray;"> ${item.name}</p>
+                    <p style="font-size: small; color: gray;"> ${item.name} (${formattedDate})</p>
                 </div>
             `;
 
