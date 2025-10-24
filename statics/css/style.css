@@ -7,7 +7,9 @@ body {
 }
 
 body {
-    margin: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* margin: 0; */
     font-family: sans-serif;
     padding: 1em;
 }
@@ -436,3 +438,6 @@ h1 {
     background-color: #0056b3; /* ホバー時の濃い青 */
 }
 
+.info-list {
+    font-size: 0.8em;
+}
