@@ -407,7 +407,7 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
             return response.json();
         })
     .then((res) => {
-    // console.log("API応答データ全体:", res);
+        console.log("API応答データ全体:", res);
         // 記事の配列 (res.contents) が存在するか確認
         if (!res.contents || res.contents.length === 0) {
             newsListContainer.innerHTML = "<p>現在、お知らせはありません。</p>";
@@ -416,7 +416,7 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
         // console.log(limitedContents)
         // 記事の配列をループ処理
         // res.contents.forEach(item => {
-        res.forEach(item => {
+        res.contents.forEach(item => {
             // 日付を整形
             const formattedDate = new Date(item.publishedAt).toLocaleDateString('ja-JP');
 
