@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scrollButton = document.getElementById('scroll-button'); // スクロールボタンも取得
 
+    const newsListContainer = document.querySelector('#news-list');
+
     let fetchedData = []; // フェッチしたデータを保持する変数
 
     // --- 表示切替関数 ---
