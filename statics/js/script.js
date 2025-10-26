@@ -385,15 +385,27 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
     });
 
 // microcmsから取得した内容を画面へ反映させる
-    const { createClient } = microcms;
+    const FLASK_PROXY_BASE_URL = 'https://cms-api-281456272382.us-east1.run.app/api/v1';
+    // const FLASK_PROXY_BASE_URL = 'http://localhost:8080/api/v1';
 
-    const client = createClient({
-      serviceDomain: 'info-oshirase', // service-domain は https://XXXX.microcms.io の XXXX 部分
-      apiKey: 'uvmCNlFCsI2uzLJ4QwKvp8Rf0Nldi2CfTnej',
-    })
-    const newsListContainer = document.querySelector('#news-list');
-    // エンドポイント名のみを指定し、全記事（または複数記事）を取得
-    client.get({ endpoint: 'categories'}) // ★ ID（gppino0sel）を削除してエンドポイント名のみにする
+    // MicroCMSのコンテンツエンドポイント（例: blogs）とクエリパラメータ
+    const endpoint = 'spicysessions';
+    const queryParams = new URLSearchParams({
+        limit: 3,
+        fields: 'name,publishedAt' // 取得フィールドを制限
+    });
+
+    const url = `${FLASK_PROXY_BASE_URL}/${endpoint}?${queryParams.toString()}`;
+
+    fetch(url)
+        .then(response => {
+            // HTTPステータスコードをチェック
+            if (!response.ok) {
+                // Flaskサーバーからのエラーレスポンス（4xx, 5xx）を処理
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
     .then((res) => {
     // console.log("API応答データ全体:", res);
         // 記事の配列 (res.contents) が存在するか確認
@@ -401,12 +413,10 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
             newsListContainer.innerHTML = "<p>現在、お知らせはありません。</p>";
             return;
         }
-        const limit = 3; // 表示したい記事の最大件数
-        const limitedContents = res.contents.slice(0, limit); // 先頭から3件を切り出す
         // console.log(limitedContents)
         // 記事の配列をループ処理
         // res.contents.forEach(item => {
-        limitedContents.forEach(item => {
+        res.forEach(item => {
             // 日付を整形
             const formattedDate = new Date(item.publishedAt).toLocaleDateString('ja-JP');
 
