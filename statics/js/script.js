@@ -406,36 +406,36 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
             }
             return response.json();
         })
-    .then((res) => {
-        console.log("API応答データ全体:", res);
-        // 記事の配列 (res.contents) が存在するか確認
-        if (!res.contents || res.contents.length === 0) {
-            newsListContainer.innerHTML = "<p>現在、お知らせはありません。</p>";
-            return;
-        }
-        // console.log(limitedContents)
-        // 記事の配列をループ処理
-        // res.contents.forEach(item => {
-        res.contents.forEach(item => {
-            // 日付を整形
-            const formattedDate = new Date(item.publishedAt).toLocaleDateString('ja-JP');
+        .then((res) => {
+            // console.log("API応答データ全体:", res);
+            // 記事の配列 (res.contents) が存在するか確認
+            if (!res.contents || res.contents.length === 0) {
+                newsListContainer.innerHTML = "<p>現在、お知らせはありません。</p>";
+                return;
+            }
+            // console.log(limitedContents)
+            // 記事の配列をループ処理
+            // res.contents.forEach(item => {
+            res.contents.forEach(item => {
+                // 日付を整形
+                const formattedDate = new Date(item.publishedAt).toLocaleDateString('ja-JP');
 
-            // 表示するHTML要素を組み立てる
-            const articleHtml = `
-                <div class="news-item" padding: 10px 0;">
-                    <p style="font-size: small;"> ${formattedDate}  ${item.name} </p>
-                </div>
-            `;
+                // 表示するHTML要素を組み立てる
+                const articleHtml = `
+                    <div class="news-item" padding: 10px 0;">
+                        <p style="font-size: small;"> ${formattedDate}  ${item.name} </p>
+                    </div>
+                `;
 
-            // 記事コンテナに追加
-            newsListContainer.innerHTML += articleHtml;
-        });
-    })
+                // 記事コンテナに追加
+                newsListContainer.innerHTML += articleHtml;
+            });
+        })
         .catch((err) => {
-        console.error("コンテンツの取得に失敗しました:", err);
-        document.body.innerHTML = "<h1>お知らせの取得中にエラーが発生しました。</h1>";
-    });
-    // microcmsの処理はここまで
+            console.error("コンテンツの取得に失敗しました:", err);
+            document.body.innerHTML = "<h1>お知らせの取得中にエラーが発生しました。</h1>";
+        });
+        // microcmsの処理はここまで
 
 }); // DOMContentLoaded の終わり
 
