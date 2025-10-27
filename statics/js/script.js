@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scrollButton = document.getElementById('scroll-button'); // スクロールボタンも取得
 
-    const newsListContainer = document.querySelector('#news-list');
-
     let fetchedData = []; // フェッチしたデータを保持する変数
 
     // --- 表示切替関数 ---
@@ -268,15 +266,6 @@ function displaySearchResults(results) {
             return;
         }
 
-        // if (!searchTerm) {
-        //     Swal.fire({
-        //         icon: 'warning',
-        //         title: '曲名が入力されてませんよ',
-        //         text: '検索したい曲名を１文字以上入力してね',
-        //     });
-        //     return;
-        // }
-
         const searchResults = []; // 検索結果を格納する配列
 
         fetchedData.forEach(episode => {
@@ -390,6 +379,9 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
     const FLASK_PROXY_BASE_URL = 'https://cms-api-281456272382.us-east1.run.app/api/v1';
     // const FLASK_PROXY_BASE_URL = 'http://localhost:8080/api/v1';
 
+    // 画面表示用項目を取得
+     const newsListContainer = document.querySelector('#news-list');
+     
     // MicroCMSのコンテンツエンドポイント（例: blogs）とクエリパラメータ
     const endpoint = 'spicysessions';
     const queryParams = new URLSearchParams({
