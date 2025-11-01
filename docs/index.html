@@ -13,7 +13,52 @@
         body {
             font-family: sans-serif;
             text-align: center;
-            padding-top: 50px;
+            /* 画面の高さに対する比率で余白を設定 */
+            padding-top: 5vh; 
+            margin: 0; /* bodyのデフォルトマージンをリセット */
+            padding-left: 10px; /* 左右に少し余白を追加 */
+            padding-right: 10px;
+        }
+
+        h1 {
+            /* 見出しの上下に余白を設定 */
+            margin-top: 0.5em; 
+            margin-bottom: 0.5em;
+        }
+
+        img {
+            /* 画像が画面幅を超えないように、親要素の幅いっぱいに広がるように設定 */
+            max-width: 100%; 
+            /* 画像の縦横比を維持 */
+            height: auto; 
+            /* 画像と上下の要素の間に余白を追加 */
+            margin: 20px 0; 
+        }
+
+        p {
+            margin: 1em 0;
+            line-height: 1.5;
+        }
+
+        a {
+            /* リンクをタップしやすくするため、上下に余白を追加 */
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* 画面幅が600px以下（スマホなど）の場合に適用されるスタイル */
+        @media screen and (max-width: 600px) {
+            h1 {
+                /* スマホで読みやすいようにフォントサイズを調整 */
+                font-size: 1.5em; 
+            }
+            p {
+                /* スマホで読みやすいようにフォントサイズを調整 */
+                font-size: 1em; 
+            }
         }
     </style>
 </head>
