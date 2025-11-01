@@ -376,7 +376,8 @@ sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
     });
 
 // microcmsから取得した内容を画面へ反映させる
-    const FLASK_PROXY_BASE_URL = 'https://cms-api-281456272382.us-east1.run.app/api/v1';
+    // const FLASK_PROXY_BASE_URL = 'https://cms-api-281456272382.us-east1.run.app/api/v1';
+    const FLASK_PROXY_BASE_URL = 'https://t-cms-api-281456272382.asia-northeast2.run.app/api/v1';
     // const FLASK_PROXY_BASE_URL = 'http://localhost:8080/api/v1';
 
     // 画面表示用項目を取得
