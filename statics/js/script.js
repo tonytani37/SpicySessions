@@ -358,7 +358,9 @@ sortAscButton.addEventListener('click', () => sortEpisodes('asc'));
 sortDescButton.addEventListener('click', () => sortEpisodes('desc'));
 
     // --- データ取得処理 (既存の処理) ---
-    const jsonUrl = 'json/spicy_sessions_songs.json'; // ローカル用パス
+    // const jsonUrl = 'json/spicy_sessions_songs.json'; // ローカル用パス
+    const jsonUrl = 'https://spicysessions-songs-api-281456272382.asia-northeast2.run.app/songs'; // ローカル用パス
+
     // const jsonUrl = 'json/old/spicy_sessions_songs.json'; // ローカル用パス
     // const jsonUrl = 'https://raw.githubusercontent.com/tonytani37/nogizaka46_live/refs/heads/main/spicy_sessions_songs.json';
 
